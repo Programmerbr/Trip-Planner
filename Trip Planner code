@@ -1,0 +1,66 @@
+import java.util.Scanner;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+public class tripPlanner {
+
+    public static void main (String[] args){
+        // Add scanner
+        Scanner input = new Scanner (System.in);
+        System.out.println("Welcome to Vacation Planner!");
+        System.out.print ("What's your name? ");
+
+        //Get name
+        String name = input.next();
+        System.out.print ("Nice too meet you " + name + ", where are you travelling to? ");
+
+        //Get Location
+        String locationTrip = input.next();
+        System.out.println ("Great! " + locationTrip + " sounds like a great trip.");
+        System.out.print ("***********\n\n");
+
+        // Get Days travelling
+        System.out.print ("How many days are you going to spend travelling? ");
+        int daysTravel = input.nextInt();
+
+        // Get money value
+        System.out.print ("How much money, in USD, are you planning to spend on your trip? ");
+        int moneyAmount = input.nextInt();
+
+        // Get symbol destination
+        System.out.print ("What is the three letter currency symbol for your travel destinantion? ");
+        String symbolDestination = input.next();
+
+        // Get currency - this line has to ask for a double variable, so the scanner function changed to .nextDouble()
+        System.out.print ("How many " + symbolDestination + " are there in 1 USD? ");
+        double currencyValue = input.nextDouble();
+
+        int totalHoursTravelling = (daysTravel * 24);
+        int totalMinutesTravelling = (totalHoursTravelling * 60);
+        double maxSpend = (moneyAmount / daysTravel);
+        double moneyValue = (currencyValue * moneyAmount);
+        double budgetPerDay = (moneyValue/daysTravel);
+
+        System.out.print ("\nIf you are travelling for " + daysTravel + " days that is the same as " + totalHoursTravelling + " hours or " + totalMinutesTravelling + " minutes\n");
+        System.out.print ("If you are going to spend $" + moneyAmount + " USD that means per day you can spend up to $" + maxSpend + " USD\n");
+        System.out.print ("Your total budget in " + symbolDestination + " is " + moneyValue + " " + symbolDestination + ", per day is " + budgetPerDay + " " + symbolDestination + "\n");
+        System.out.print ("***********\n\n");
+
+
+        System.out.print("What is the time difference, in hours, between you home and your destination? ");
+        int timeDifferenceDest = input.nextInt();
+
+        int timeLocalMid = (0 +timeDifferenceDest);
+        int noonTime = (12 +timeDifferenceDest);
+
+        System.out.print("That means that when it is midnight at home will be " +timeLocalMid + ":"+ 0+0 + " in your travel destination and when it is noon at home will be " + noonTime + ":"+ 0+0 + "\n");
+        System.out.print ("***********\n\n");
+
+        System.out.print ("What is the square area of your destination country in km2? ");
+        int areaTotal = input.nextInt();
+
+        double milesConvertion = (areaTotal * 0.62137119223);
+        System.out.print ("In miles2 that is " + milesConvertion + "\n");
+        System.out.print ("***********\n\n");
+
+    }
